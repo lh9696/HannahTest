@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="interjektionen-aus-der-dwds-lemmadatenbank">Interjektionen aus
+der DWDS-Lemmadatenbank</h1>
+<h2 id="einführung">Einführung</h2>
+<p>Diese Webseite präsentiert eine umfassende Liste von Interjektionen,
+die im Digitalen Wörterbuch der deutschen Sprache (DWDS) verzeichnet
+sind. Interjektionen, auch Ausrufe oder Empfindungswörter genannt, sind
+Wörter, die oft zur Ausdrucksverstärkung verwendet werden und nicht in
+die grammatikalische Struktur des Satzes eingebunden sind. Beispiele
+sind “ach”, “oh”, “aha”, die emotionale Reaktionen, Überraschung oder
+andere spontane Empfindungen ausdrücken.</p>
+<h2 id="erstellung-der-liste">Erstellung der Liste</h2>
+<p>Die Erstellung der Liste erfolgte in mehreren sorgfältig ausgeführten
+Schritten, die im Folgenden beschrieben werden:</p>
+<ol type="1">
+<li><strong>Download der Daten von der DWDS-Lemmadatenbank</strong>:
+<ul>
+<li>Der erste Schritt bestand darin, die vollständige Datenbank der
+Wörterbucheinträge von der DWDS-Website herunterzuladen. Dies geschah
+über die Seite <a href="https://www.dwds.de/lemma/list">DWDS
+Lemmaliste</a>, wo die CSV-Datei am Ende unter “Download” verfügbar
+ist.</li>
+</ul></li>
+<li><strong>Auswahl der relevanten Informationen mit SQL</strong>:
+<ul>
+<li><p>Nachdem die CSV-Datei heruntergeladen wurde, wurde sie in Visual
+Studio Code geöffnet. Mit der Extension “Rainbow CSV” konnte die Tabelle
+übersichtlich dargestellt und bearbeitet werden. Durch eine gezielte
+SQL-Abfrage wurden nur die Zeilen mit der Wortart “Interjektion”
+ausgewählt:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">WHERE</span> a.Wortklasse <span class="op">==</span> <span class="ot">&quot;Interjektion&quot;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Formatieren der Information mit Regex</strong>:
+<ul>
+<li>Um die ausgewählten Daten in ein geeignetes Format für die Webseite
+zu bringen, wurden reguläre Ausdrücke (Regex) verwendet. Die Einträge
+wurden so formatiert, dass sie den Markdown-Syntax für Listen und Links
+entsprechen.</li>
+</ul></li>
+<li><strong>Schreiben des Begleittexts in Markdown</strong>:
+<ul>
+<li>Ein erläuternder Text wurde in Markdown geschrieben, um die Liste zu
+erklären und den Erstellungsprozess zu beschreiben.</li>
+</ul></li>
+<li><strong>Umwandeln in HTML</strong>:
+<ul>
+<li>Der in Markdown erstellte Text und die Liste wurden mit dem Tool
+Pandoc in HTML umgewandelt. Hierbei wurde die Option “standalone”
+verwendet, um eine ansprechende und vollständige Webseite zu
+generieren.</li>
+</ul></li>
+<li><strong>Hochladen auf Github und Veröffentlichung</strong>:
+<ul>
+<li>Abschließend wurde die HTML-Datei auf Github hochgeladen und
+veröffentlicht. Der Link zur veröffentlichten Webseite dient als
+Endprodukt dieser Aufgabe.</li>
+</ul></li>
+</ol>
+<p>Die folgende Liste ist als direkter Link zum entsprechenden Eintrag
+im DWDS-Wörterbuch versehen, um weitere Informationen zu bieten.</p>
+<h1 id="interjektionen-aus-der-dwds-lemmadatenbank-liste">Interjektionen
+aus der DWDS-Lemmadatenbank (Liste)</h1>
+<ul>
+<li><a href="https://www.dwds.de/wb/absolut#2">absolut</a></li>
+<li><a href="https://www.dwds.de/wb/ach">ach</a></li>
+<li><a href="https://www.dwds.de/wb/ade">ade</a></li>
+<li><a href="https://www.dwds.de/wb/adieu">adieu</a></li>
+<li><a href="https://www.dwds.de/wb/adjues">adjüs</a></li>
+<li><a href="https://www.dwds.de/wb/ah">ah</a></li>
+<li><a href="https://www.dwds.de/wb/aha">aha</a></li>
+<li><a href="https://www.dwds.de/wb/ahoi">ahoi</a></li>
+<li><a href="https://www.dwds.de/wb/alaaf">alaaf</a></li>
+<li><a href="https://www.dwds.de/wb/all%20right">all right</a></li>
+<li><a href="https://www.dwds.de/wb/allaaf">allaaf</a></li>
+<li><a href="https://www.dwds.de/wb/allez">allez</a></li>
+<li><a href="https://www.dwds.de/wb/allons">allons</a></li>
+<li><a href="https://www.dwds.de/wb/au">au</a></li>
+<li><a href="https://www.dwds.de/wb/au%20weh">au weh</a></li>
+<li><a href="https://www.dwds.de/wb/au%20wei">au wei</a></li>
+<li><a href="https://www.dwds.de/wb/au%20weia">au weia</a></li>
+<li><a href="https://www.dwds.de/wb/aua">aua</a></li>
+<li><a href="https://www.dwds.de/wb/autsch">autsch</a></li>
+<li><a href="https://www.dwds.de/wb/auweh">auweh</a></li>
+<li><a href="https://www.dwds.de/wb/auwei">auwei</a></li>
+<li><a href="https://www.dwds.de/wb/auweia">auweia</a></li>
+<li><a href="https://www.dwds.de/wb/avanti">avanti</a></li>
+<li><a href="https://www.dwds.de/wb/bah">bah</a></li>
+<li><a href="https://www.dwds.de/wb/bam">bam</a></li>
+<li><a href="https://www.dwds.de/wb/bardauz">bardauz</a></li>
+<li><a href="https://www.dwds.de/wb/basta">basta</a></li>
+<li><a href="https://www.dwds.de/wb/bauz">bauz</a></li>
+<li><a href="https://www.dwds.de/wb/bim">bim</a></li>
+<li><a href="https://www.dwds.de/wb/bingo">bingo</a></li>
+<li><a href="https://www.dwds.de/wb/blaff">blaff</a></li>
+<li><a href="https://www.dwds.de/wb/boah">boah</a></li>
+<li><a href="https://www.dwds.de/wb/boing">boing</a></li>
+<li><a href="https://www.dwds.de/wb/bravissimo">bravissimo</a></li>
+<li><a href="https://www.dwds.de/wb/bravo">bravo</a></li>
+<li><a href="https://www.dwds.de/wb/break">break</a></li>
+<li><a href="https://www.dwds.de/wb/brr">brr</a></li>
+<li><a href="https://www.dwds.de/wb/bst">bst</a></li>
+<li><a href="https://www.dwds.de/wb/buh">buh</a></li>
+<li><a href="https://www.dwds.de/wb/bum">bum</a></li>
+<li><a href="https://www.dwds.de/wb/bums">bums</a></li>
+<li><a href="https://www.dwds.de/wb/baeh">bäh</a></li>
+<li><a href="https://www.dwds.de/wb/caramba">caramba</a></li>
+<li><a href="https://www.dwds.de/wb/ciao">ciao</a></li>
+<li><a href="https://www.dwds.de/wb/dacapo">dacapo</a></li>
+<li><a href="https://www.dwds.de/wb/dakapo">dakapo</a></li>
+<li><a href="https://www.dwds.de/wb/danke">danke</a></li>
+<li><a href="https://www.dwds.de/wb/dideldum">dideldum</a></li>
+<li><a href="https://www.dwds.de/wb/Donnerkiel">Donnerkiel</a></li>
+<li><a href="https://www.dwds.de/wb/Donnerlittchen">Donnerlittchen</a></li>
+<li><a href="https://www.dwds.de/wb/Donnerluettchen">Donnerlüttchen</a></li>
+<li><a href="https://www.dwds.de/wb/Dunnerlittchen">Dunnerlittchen</a></li>
+<li><a href="https://www.dwds.de/wb/eh#2">eh</a></li>
+<li><a href="https://www.dwds.de/wb/ehm">ehm</a></li>
+<li><a href="https://www.dwds.de/wb/ei">ei</a></li>
+<li><a href="https://www.dwds.de/wb/eia">eia</a></li>
+<li><a href="https://www.dwds.de/wb/eia%20popeia">eia popeia</a></li>
+<li><a href="https://www.dwds.de/wb/eiapopeia">eiapopeia</a></li>
+<li><a href="https://www.dwds.de/wb/ey">ey</a></li>
+<li><a href="https://www.dwds.de/wb/feurio">feurio</a></li>
+<li><a href="https://www.dwds.de/wb/Feurio">Feurio</a></li>
+<li><a href="https://www.dwds.de/wb/Fixlaudon">Fixlaudon</a></li>
+<li><a href="https://www.dwds.de/wb/flapp">flapp</a></li>
+<li><a href="https://www.dwds.de/wb/flatsch">flatsch</a></li>
+<li><a href="https://www.dwds.de/wb/gack,%20gack">gack, gack</a></li>
+<li><a href="https://www.dwds.de/wb/giek">giek</a></li>
+<li><a href="https://www.dwds.de/wb/gieks">gieks</a></li>
+<li><a href="https://www.dwds.de/wb/gitt">gitt</a></li>
+<li><a href="https://www.dwds.de/wb/gitte">gitte</a></li>
+<li><a href="https://www.dwds.de/wb/gottbewahre">gottbewahre</a></li>
+<li><a href="https://www.dwds.de/wb/gottlob">gottlob</a></li>
+<li><a href="https://www.dwds.de/wb/Gottsverdori">Gottsverdori</a></li>
+<li><a href="https://www.dwds.de/wb/gottverdammmich">gottverdammmich</a></li>
+<li><a href="https://www.dwds.de/wb/grueezi">grüezi</a></li>
+<li><a href="https://www.dwds.de/wb/gusch#1">gusch</a></li>
+<li><a href="https://www.dwds.de/wb/gaehn">gähn</a></li>
+<li><a href="https://www.dwds.de/wb/ha#1">ha</a></li>
+<li><a href="https://www.dwds.de/wb/hach">hach</a></li>
+<li><a href="https://www.dwds.de/wb/haha">haha</a></li>
+<li><a href="https://www.dwds.de/wb/hahaha">hahaha</a></li>
+<li><a href="https://www.dwds.de/wb/halleluja">halleluja</a></li>
+<li><a href="https://www.dwds.de/wb/hallo">hallo</a></li>
+<li><a href="https://www.dwds.de/wb/halloechen">hallöchen</a></li>
+<li><a href="https://www.dwds.de/wb/halt#2">halt</a></li>
+<li><a href="https://www.dwds.de/wb/har">har</a></li>
+<li><a href="https://www.dwds.de/wb/hatschi">hatschi</a></li>
+<li><a href="https://www.dwds.de/wb/hau%20ruck">hau ruck</a></li>
+<li><a href="https://www.dwds.de/wb/he">he</a></li>
+<li><a href="https://www.dwds.de/wb/heda">heda</a></li>
+<li><a href="https://www.dwds.de/wb/hei">hei</a></li>
+<li><a href="https://www.dwds.de/wb/heia">heia</a></li>
+<li><a href="https://www.dwds.de/wb/heiapopeia">heiapopeia</a></li>
+<li><a href="https://www.dwds.de/wb/heidi">heidi</a></li>
+<li><a href="https://www.dwds.de/wb/heisa">heisa</a></li>
+<li><a href="https://www.dwds.de/wb/heisasa">heisasa</a></li>
+<li><a href="https://www.dwds.de/wb/heisassa">heisassa</a></li>
+<li><a href="https://www.dwds.de/wb/heisassassa">heisassassa</a></li>
+<li><a href="https://www.dwds.de/wb/heissa">heißa</a></li>
+<li><a href="https://www.dwds.de/wb/heissassa">heißassa</a></li>
+<li><a href="https://www.dwds.de/wb/heissassassa">heißassassa</a></li>
+<li><a href="https://www.dwds.de/wb/helau">helau</a></li>
+<li><a href="https://www.dwds.de/wb/helfgott">helfgott</a></li>
+<li><a href="https://www.dwds.de/wb/hellau">hellau</a></li>
+<li><a href="https://www.dwds.de/wb/hem">hem</a></li>
+<li><a href="https://www.dwds.de/wb/herrje">herrje</a></li>
+<li><a href="https://www.dwds.de/wb/herrjemine">herrjemine</a></li>
+<li><a href="https://www.dwds.de/wb/heu">heu</a></li>
+<li><a href="https://www.dwds.de/wb/heureka">heureka</a></li>
+<li><a href="https://www.dwds.de/wb/hey">hey</a></li>
+<li><a href="https://www.dwds.de/wb/hi#1">hi</a></li>
+<li><a href="https://www.dwds.de/wb/hi#2">hi</a></li>
+<li><a href="https://www.dwds.de/wb/hick">hick</a></li>
+<li><a href="https://www.dwds.de/wb/hicks">hicks</a></li>
+<li><a href="https://www.dwds.de/wb/hihi">hihi</a></li>
+<li><a href="https://www.dwds.de/wb/hihihi">hihihi</a></li>
+<li><a href="https://www.dwds.de/wb/Himmeldonnerwetter">Himmeldonnerwetter</a></li>
+<li><a href="https://www.dwds.de/wb/Himmelherrgott">Himmelherrgott</a></li>
+<li><a href="https://www.dwds.de/wb/Himmelherrgottsakra">Himmelherrgottsakra</a></li>
+<li><a href="https://www.dwds.de/wb/hm">hm</a></li>
+<li><a href="https://www.dwds.de/wb/hmm">hmm</a></li>
+<li><a href="https://www.dwds.de/wb/hmmm">hmmm</a></li>
+<li><a href="https://www.dwds.de/wb/ho">ho</a></li>
+<li><a href="https://www.dwds.de/wb/hoho">hoho</a></li>
+<li><a href="https://www.dwds.de/wb/hoi">hoi</a></li>
+<li><a href="https://www.dwds.de/wb/holdrio">holdrio</a></li>
+<li><a href="https://www.dwds.de/wb/holla">holla</a></li>
+<li><a href="https://www.dwds.de/wb/holterdiepolter">holterdiepolter</a></li>
+<li><a href="https://www.dwds.de/wb/hopp">hopp</a></li>
+<li><a href="https://www.dwds.de/wb/hoppala">hoppala</a></li>
+<li><a href="https://www.dwds.de/wb/hopphopp">hopphopp</a></li>
+<li><a href="https://www.dwds.de/wb/hoppla">hoppla</a></li>
+<li><a href="https://www.dwds.de/wb/hops">hops</a></li>
+<li><a href="https://www.dwds.de/wb/hopsa">hopsa</a></li>
+<li><a href="https://www.dwds.de/wb/hopsala">hopsala</a></li>
+<li><a href="https://www.dwds.de/wb/hopsasa">hopsasa</a></li>
+<li><a href="https://www.dwds.de/wb/hopsassa">hopsassa</a></li>
+<li><a href="https://www.dwds.de/wb/horrido">horrido</a></li>
+<li><a href="https://www.dwds.de/wb/hosanna">hosanna</a></li>
+<li><a href="https://www.dwds.de/wb/hosianna">hosianna</a></li>
+<li><a href="https://www.dwds.de/wb/hossa">hossa</a></li>
+<li><a href="https://www.dwds.de/wb/hott">hott</a></li>
+<li><a href="https://www.dwds.de/wb/hu">hu</a></li>
+<li><a href="https://www.dwds.de/wb/huch">huch</a></li>
+<li><a href="https://www.dwds.de/wb/huf">huf</a></li>
+<li><a href="https://www.dwds.de/wb/huh">huh</a></li>
+<li><a href="https://www.dwds.de/wb/huhu">huhu</a></li>
+<li><a href="https://www.dwds.de/wb/hui">hui</a></li>
+<li><a href="https://www.dwds.de/wb/hurra">hurra</a></li>
+<li><a href="https://www.dwds.de/wb/husch">husch</a></li>
+<li><a href="https://www.dwds.de/wb/hussa">hussa</a></li>
+<li><a href="https://www.dwds.de/wb/hae">hä</a></li>
+<li><a href="https://www.dwds.de/wb/hue">hü</a></li>
+<li><a href="https://www.dwds.de/wb/huef">hüf</a></li>
+<li><a href="https://www.dwds.de/wb/hueh">hüh</a></li>
+<li><a href="https://www.dwds.de/wb/huest">hüst</a></li>
+<li><a href="https://www.dwds.de/wb/i#2">i</a></li>
+<li><a href="https://www.dwds.de/wb/iah">iah</a></li>
+<li><a href="https://www.dwds.de/wb/igitt">igitt</a></li>
+<li><a href="https://www.dwds.de/wb/igittigitt">igittigitt</a></li>
+<li><a href="https://www.dwds.de/wb/ih">ih</a></li>
+<li><a href="https://www.dwds.de/wb/jaja">jaja</a></li>
+<li><a href="https://www.dwds.de/wb/jawoll">jawoll</a></li>
+<li><a href="https://www.dwds.de/wb/je#3">je</a></li>
+<li><a href="https://www.dwds.de/wb/jemine">jemine</a></li>
+<li><a href="https://www.dwds.de/wb/jerum">jerum</a></li>
+<li><a href="https://www.dwds.de/wb/Jessas">Jessas</a></li>
+<li><a href="https://www.dwds.de/wb/Jessas%20na">Jessas na</a></li>
+<li><a href="https://www.dwds.de/wb/juchhe">juchhe</a></li>
+<li><a href="https://www.dwds.de/wb/juchhei">juchhei</a></li>
+<li><a href="https://www.dwds.de/wb/juchheirassa">juchheirassa</a></li>
+<li><a href="https://www.dwds.de/wb/juchheirassassa">juchheirassassa</a></li>
+<li><a href="https://www.dwds.de/wb/juchheisa">juchheisa</a></li>
+<li><a href="https://www.dwds.de/wb/juchheissa">juchheißa</a></li>
+<li><a href="https://www.dwds.de/wb/juhe">juhe</a></li>
+<li><a href="https://www.dwds.de/wb/juhu#2">juhu</a></li>
+<li><a href="https://www.dwds.de/wb/juhu#1">juhu</a></li>
+<li><a href="https://www.dwds.de/wb/juvivallera">juvivallera</a></li>
+<li><a href="https://www.dwds.de/wb/joe">jö</a></li>
+<li><a href="https://www.dwds.de/wb/kieks">kieks</a></li>
+<li><a href="https://www.dwds.de/wb/kikeriki">kikeriki</a></li>
+<li><a href="https://www.dwds.de/wb/kikriki">kikriki</a></li>
+<li><a href="https://www.dwds.de/wb/killekille">killekille</a></li>
+<li><a href="https://www.dwds.de/wb/klack">klack</a></li>
+<li><a href="https://www.dwds.de/wb/klacks">klacks</a></li>
+<li><a href="https://www.dwds.de/wb/kladderadatsch">kladderadatsch</a></li>
+<li><a href="https://www.dwds.de/wb/klang">klang</a></li>
+<li><a href="https://www.dwds.de/wb/klapf">klapf</a></li>
+<li><a href="https://www.dwds.de/wb/klapp">klapp</a></li>
+<li><a href="https://www.dwds.de/wb/klaps">klaps</a></li>
+<li><a href="https://www.dwds.de/wb/klatsch">klatsch</a></li>
+<li><a href="https://www.dwds.de/wb/klick">klick</a></li>
+<li><a href="https://www.dwds.de/wb/klicks">klicks</a></li>
+<li><a href="https://www.dwds.de/wb/kling">kling</a></li>
+<li><a href="https://www.dwds.de/wb/klingeling">klingeling</a></li>
+<li><a href="https://www.dwds.de/wb/klingling">klingling</a></li>
+<li><a href="https://www.dwds.de/wb/klipp">klipp</a></li>
+<li><a href="https://www.dwds.de/wb/klirr">klirr</a></li>
+<li><a href="https://www.dwds.de/wb/klitsch">klitsch</a></li>
+<li><a href="https://www.dwds.de/wb/knack">knack</a></li>
+<li><a href="https://www.dwds.de/wb/knacks">knacks</a></li>
+<li><a href="https://www.dwds.de/wb/knaps">knaps</a></li>
+<li><a href="https://www.dwds.de/wb/knicks">knicks</a></li>
+<li><a href="https://www.dwds.de/wb/knips">knips</a></li>
+<li><a href="https://www.dwds.de/wb/krach">krach</a></li>
+<li><a href="https://www.dwds.de/wb/Kreuzdonnerwetter">Kreuzdonnerwetter</a></li>
+<li><a href="https://www.dwds.de/wb/kruzituerken">kruzitürken</a></li>
+<li><a href="https://www.dwds.de/wb/ksch">ksch</a></li>
+<li><a href="https://www.dwds.de/wb/kuckuck">kuckuck</a></li>
+<li><a href="https://www.dwds.de/wb/kusch#1">kusch</a></li>
+<li><a href="https://www.dwds.de/wb/la">la</a></li>
+<li><a href="https://www.dwds.de/wb/larifari">larifari</a></li>
+<li><a href="https://www.dwds.de/wb/Mannomann">Mannomann</a></li>
+<li><a href="https://www.dwds.de/wb/marsch">marsch</a></li>
+<li><a href="https://www.dwds.de/wb/meck">meck</a></li>
+<li><a href="https://www.dwds.de/wb/meckmeck">meckmeck</a></li>
+<li><a href="https://www.dwds.de/wb/mei">mei</a></li>
+<li><a href="https://www.dwds.de/wb/menno">menno</a></li>
+<li><a href="https://www.dwds.de/wb/merci">merci</a></li>
+<li><a href="https://www.dwds.de/wb/metanoeite">metanoeite</a></li>
+<li><a href="https://www.dwds.de/wb/miau">miau</a></li>
+<li><a href="https://www.dwds.de/wb/miez,%20miez">miez, miez</a></li>
+<li><a href="https://www.dwds.de/wb/moin">moin</a></li>
+<li><a href="https://www.dwds.de/wb/mordio">mordio</a></li>
+<li><a href="https://www.dwds.de/wb/muff">muff</a></li>
+<li><a href="https://www.dwds.de/wb/muh">muh</a></li>
+<li><a href="https://www.dwds.de/wb/mupf">mupf</a></li>
+<li><a href="https://www.dwds.de/wb/maeh">mäh</a></li>
+<li><a href="https://www.dwds.de/wb/na">na</a></li>
+<li><a href="https://www.dwds.de/wb/na%20ja#1">na ja</a></li>
+<li><a href="https://www.dwds.de/wb/na,%20na">na, na</a></li>
+<li><a href="https://www.dwds.de/wb/naja#1">naja</a></li>
+<li><a href="https://www.dwds.de/wb/nanu">nanu</a></li>
+<li><a href="https://www.dwds.de/wb/ne">ne</a></li>
+<li><a href="https://www.dwds.de/wb/nebbich">nebbich</a></li>
+<li><a href="https://www.dwds.de/wb/nee">nee</a></li>
+<li><a href="https://www.dwds.de/wb/nitschewo">nitschewo</a></li>
+<li><a href="https://www.dwds.de/wb/njam,%20njam">njam, njam</a></li>
+<li><a href="https://www.dwds.de/wb/o#2">o</a></li>
+<li><a href="https://www.dwds.de/wb/och">och</a></li>
+<li><a href="https://www.dwds.de/wb/ogottogott">ogottogott</a></li>
+<li><a href="https://www.dwds.de/wb/oh">oh</a></li>
+<li><a href="https://www.dwds.de/wb/oha">oha</a></li>
+<li><a href="https://www.dwds.de/wb/oho">oho</a></li>
+<li><a href="https://www.dwds.de/wb/oje">oje</a></li>
+<li><a href="https://www.dwds.de/wb/ojemine">ojemine</a></li>
+<li><a href="https://www.dwds.de/wb/olau">olau</a></li>
+<li><a href="https://www.dwds.de/wb/olé">olé</a></li>
+<li><a href="https://www.dwds.de/wb/paff">paff</a></li>
+<li><a href="https://www.dwds.de/wb/pah">pah</a></li>
+<li><a href="https://www.dwds.de/wb/papperlapapp">papperlapapp</a></li>
+<li><a href="https://www.dwds.de/wb/parbleu">parbleu</a></li>
+<li><a href="https://www.dwds.de/wb/pardauz">pardauz</a></li>
+<li><a href="https://www.dwds.de/wb/pascholl">pascholl</a></li>
+<li><a href="https://www.dwds.de/wb/patsch">patsch</a></li>
+<li><a href="https://www.dwds.de/wb/peng">peng</a></li>
+<li><a href="https://www.dwds.de/wb/pfui">pfui</a></li>
+<li><a href="https://www.dwds.de/wb/piep">piep</a></li>
+<li><a href="https://www.dwds.de/wb/pieps">pieps</a></li>
+<li><a href="https://www.dwds.de/wb/piff,%20paff">piff, paff</a></li>
+<li><a href="https://www.dwds.de/wb/piff,%20paff,%20puff">piff, paff,
+puff</a></li>
+<li><a href="https://www.dwds.de/wb/pitsch,%20patsch">pitsch,
+patsch</a></li>
+<li><a href="https://www.dwds.de/wb/platsch">platsch</a></li>
+<li><a href="https://www.dwds.de/wb/plauz">plauz</a></li>
+<li><a href="https://www.dwds.de/wb/plitsch,%20platsch">plitsch,
+platsch</a></li>
+<li><a href="https://www.dwds.de/wb/plumps">plumps</a></li>
+<li><a href="https://www.dwds.de/wb/potz">potz</a></li>
+<li><a href="https://www.dwds.de/wb/potztausend">potztausend</a></li>
+<li><a href="https://www.dwds.de/wb/proficiat">proficiat</a></li>
+<li><a href="https://www.dwds.de/wb/prosit">prosit</a></li>
+<li><a href="https://www.dwds.de/wb/prost">prost</a></li>
+<li><a href="https://www.dwds.de/wb/pscht">pscht</a></li>
+<li><a href="https://www.dwds.de/wb/pst">pst</a></li>
+<li><a href="https://www.dwds.de/wb/pu">pu</a></li>
+<li><a href="https://www.dwds.de/wb/puff">puff</a></li>
+<li><a href="https://www.dwds.de/wb/puh">puh</a></li>
+<li><a href="https://www.dwds.de/wb/Punktum">Punktum</a></li>
+<li><a href="https://www.dwds.de/wb/Pustekuchen">Pustekuchen</a></li>
+<li><a href="https://www.dwds.de/wb/put,%20put">put, put</a></li>
+<li><a href="https://www.dwds.de/wb/putt,%20putt">putt, putt</a></li>
+<li><a href="https://www.dwds.de/wb/quack">quack</a></li>
+<li><a href="https://www.dwds.de/wb/quak">quak</a></li>
+<li><a href="https://www.dwds.de/wb/quatsch">quatsch</a></li>
+<li><a href="https://www.dwds.de/wb/quiek">quiek</a></li>
+<li><a href="https://www.dwds.de/wb/raps">raps</a></li>
+<li><a href="https://www.dwds.de/wb/ratsch">ratsch</a></li>
+<li><a href="https://www.dwds.de/wb/rips">rips</a></li>
+<li><a href="https://www.dwds.de/wb/rips,%20raps">rips, raps</a></li>
+<li><a href="https://www.dwds.de/wb/rirarutsch">rirarutsch</a></li>
+<li><a href="https://www.dwds.de/wb/ritsch">ritsch</a></li>
+<li><a href="https://www.dwds.de/wb/ritsch-ratsch">ritsch-ratsch</a></li>
+<li><a href="https://www.dwds.de/wb/ritz">ritz</a></li>
+<li><a href="https://www.dwds.de/wb/ritz-ratz">ritz-ratz</a></li>
+<li><a href="https://www.dwds.de/wb/ritzeratze">ritzeratze</a></li>
+<li><a href="https://www.dwds.de/wb/roger">roger</a></li>
+<li><a href="https://www.dwds.de/wb/ruck">ruck</a></li>
+<li><a href="https://www.dwds.de/wb/ruckedigu">ruckedigu</a></li>
+<li><a href="https://www.dwds.de/wb/sackerlot">sackerlot</a></li>
+<li><a href="https://www.dwds.de/wb/sackerment">sackerment</a></li>
+<li><a href="https://www.dwds.de/wb/sakra">sakra</a></li>
+<li><a href="https://www.dwds.de/wb/sali">sali</a></li>
+<li><a href="https://www.dwds.de/wb/salli">salli</a></li>
+<li><a href="https://www.dwds.de/wb/salut">salut</a></li>
+<li><a href="https://www.dwds.de/wb/salut">salut</a></li>
+<li><a href="https://www.dwds.de/wb/salve">salve</a></li>
+<li><a href="https://www.dwds.de/wb/salue">salü</a></li>
+<li><a href="https://www.dwds.de/wb/salue">salü</a></li>
+<li><a href="https://www.dwds.de/wb/sapperlot">sapperlot</a></li>
+<li><a href="https://www.dwds.de/wb/sapperment">sapperment</a></li>
+<li><a href="https://www.dwds.de/wb/sapristi">sapristi</a></li>
+<li><a href="https://www.dwds.de/wb/sch#2">sch</a></li>
+<li><a href="https://www.dwds.de/wb/sch#1">sch</a></li>
+<li><a href="https://www.dwds.de/wb/schnapp">schnapp</a></li>
+<li><a href="https://www.dwds.de/wb/schnedderengteng">schnedderengteng</a></li>
+<li><a href="https://www.dwds.de/wb/schnip">schnip</a></li>
+<li><a href="https://www.dwds.de/wb/schnipp">schnipp</a></li>
+<li><a href="https://www.dwds.de/wb/schnipps">schnipps</a></li>
+<li><a href="https://www.dwds.de/wb/schnippschnapp">schnippschnapp</a></li>
+<li><a href="https://www.dwds.de/wb/schnips">schnips</a></li>
+<li><a href="https://www.dwds.de/wb/Schockschwerenot">Schockschwerenot</a></li>
+<li><a href="https://www.dwds.de/wb/schrumm">schrumm</a></li>
+<li><a href="https://www.dwds.de/wb/schwapp">schwapp</a></li>
+<li><a href="https://www.dwds.de/wb/schwipp">schwipp</a></li>
+<li><a href="https://www.dwds.de/wb/schwipps">schwipps</a></li>
+<li><a href="https://www.dwds.de/wb/schwips">schwips</a></li>
+<li><a href="https://www.dwds.de/wb/schwupp">schwupp</a></li>
+<li><a href="https://www.dwds.de/wb/schwuppdiwupp">schwuppdiwupp</a></li>
+<li><a href="https://www.dwds.de/wb/schwupps">schwupps</a></li>
+<li><a href="https://www.dwds.de/wb/schwups">schwups</a></li>
+<li><a href="https://www.dwds.de/wb/schoenchen">schönchen</a></li>
+<li><a href="https://www.dwds.de/wb/sela">sela</a></li>
+<li><a href="https://www.dwds.de/wb/servas">servas</a></li>
+<li><a href="https://www.dwds.de/wb/servus">servus</a></li>
+<li><a href="https://www.dwds.de/wb/seufz">seufz</a></li>
+<li><a href="https://www.dwds.de/wb/skål">skål</a></li>
+<li><a href="https://www.dwds.de/wb/sodele">sodele</a></li>
+<li><a href="https://www.dwds.de/wb/st#1">st</a></li>
+<li><a href="https://www.dwds.de/wb/stop">stop</a></li>
+<li><a href="https://www.dwds.de/wb/stopp">stopp</a></li>
+<li><a href="https://www.dwds.de/wb/summ">summ</a></li>
+<li><a href="https://www.dwds.de/wb/tandaradei">tandaradei</a></li>
+<li><a href="https://www.dwds.de/wb/tapp">tapp</a></li>
+<li><a href="https://www.dwds.de/wb/tatuetata">tatütata</a></li>
+<li><a href="https://www.dwds.de/wb/tick">tick</a></li>
+<li><a href="https://www.dwds.de/wb/ticktack">ticktack</a></li>
+<li><a href="https://www.dwds.de/wb/tipp">tipp</a></li>
+<li><a href="https://www.dwds.de/wb/tipp,%20tapp">tipp, tapp</a></li>
+<li><a href="https://www.dwds.de/wb/tirili">tirili</a></li>
+<li><a href="https://www.dwds.de/wb/tiro">tiro</a></li>
+<li><a href="https://www.dwds.de/wb/tja">tja</a></li>
+<li><a href="https://www.dwds.de/wb/toi,%20toi,%20toi">toi, toi,
+toi</a></li>
+<li><a href="https://www.dwds.de/wb/top#1">top</a></li>
+<li><a href="https://www.dwds.de/wb/topp">topp</a></li>
+<li><a href="https://www.dwds.de/wb/tralla">tralla</a></li>
+<li><a href="https://www.dwds.de/wb/trallala">trallala</a></li>
+<li><a href="https://www.dwds.de/wb/trallalala">trallalala</a></li>
+<li><a href="https://www.dwds.de/wb/trapp">trapp</a></li>
+<li><a href="https://www.dwds.de/wb/trara">trara</a></li>
+<li><a href="https://www.dwds.de/wb/tross">tross</a></li>
+<li><a href="https://www.dwds.de/wb/tschau">tschau</a></li>
+<li><a href="https://www.dwds.de/wb/tsching">tsching</a></li>
+<li><a href="https://www.dwds.de/wb/tschingbum">tschingbum</a></li>
+<li><a href="https://www.dwds.de/wb/tschingtaratata">tschingtaratata</a></li>
+<li><a href="https://www.dwds.de/wb/Tschues">Tschüs</a></li>
+<li><a href="https://www.dwds.de/wb/tschues">tschüs</a></li>
+<li><a href="https://www.dwds.de/wb/Tschuess">Tschüss</a></li>
+<li><a href="https://www.dwds.de/wb/tschuess">tschüss</a></li>
+<li><a href="https://www.dwds.de/wb/Tschuess">Tschüß</a></li>
+<li><a href="https://www.dwds.de/wb/tschuess">tschüß</a></li>
+<li><a href="https://www.dwds.de/wb/tucktuck">tucktuck</a></li>
+<li><a href="https://www.dwds.de/wb/tut">tut</a></li>
+<li><a href="https://www.dwds.de/wb/toeff">töff</a></li>
+<li><a href="https://www.dwds.de/wb/toeff,%20toeff">töff, töff</a></li>
+<li><a href="https://www.dwds.de/wb/uff">uff</a></li>
+<li><a href="https://www.dwds.de/wb/uh">uh</a></li>
+<li><a href="https://www.dwds.de/wb/ui">ui</a></li>
+<li><a href="https://www.dwds.de/wb/ups">ups</a></li>
+<li><a href="https://www.dwds.de/wb/valleri,%20vallera">valleri,
+vallera</a></li>
+<li><a href="https://www.dwds.de/wb/vivat">vivat</a></li>
+<li><a href="https://www.dwds.de/wb/voilà">voilà</a></li>
+<li><a href="https://www.dwds.de/wb/wallah">wallah</a></li>
+<li><a href="https://www.dwds.de/wb/wau">wau</a></li>
+<li><a href="https://www.dwds.de/wb/wau%20wau">wau wau</a></li>
+<li><a href="https://www.dwds.de/wb/wauwau">wauwau</a></li>
+<li><a href="https://www.dwds.de/wb/weh#1">weh</a></li>
+<li><a href="https://www.dwds.de/wb/wehe">wehe</a></li>
+<li><a href="https://www.dwds.de/wb/wist">wist</a></li>
+<li><a href="https://www.dwds.de/wb/witsch">witsch</a></li>
+<li><a href="https://www.dwds.de/wb/wow">wow</a></li>
+<li><a href="https://www.dwds.de/wb/wumm">wumm</a></li>
+<li><a href="https://www.dwds.de/wb/wupp">wupp</a></li>
+<li><a href="https://www.dwds.de/wb/wuppdi">wuppdi</a></li>
+<li><a href="https://www.dwds.de/wb/wuppdich">wuppdich</a></li>
+<li><a href="https://www.dwds.de/wb/wupps">wupps</a></li>
+<li><a href="https://www.dwds.de/wb/wusch">wusch</a></li>
+<li><a href="https://www.dwds.de/wb/wutz">wutz</a></li>
+<li><a href="https://www.dwds.de/wb/yeah">yeah</a></li>
+<li><a href="https://www.dwds.de/wb/zappzarapp">zappzarapp</a></li>
+<li><a href="https://www.dwds.de/wb/zeck">zeck</a></li>
+<li><a href="https://www.dwds.de/wb/zeter">zeter</a></li>
+<li><a href="https://www.dwds.de/wb/zetermordio">zetermordio</a></li>
+<li><a href="https://www.dwds.de/wb/zipp">zipp</a></li>
+<li><a href="https://www.dwds.de/wb/zuck">zuck</a></li>
+<li><a href="https://www.dwds.de/wb/aeh#2">äh</a></li>
+<li><a href="https://www.dwds.de/wb/aeh#1">äh</a></li>
+<li><a href="https://www.dwds.de/wb/aehm">ähm</a></li>
+<li><a href="https://www.dwds.de/wb/aetsch">ätsch</a></li>
+</ul>
+</body>
+</html>
